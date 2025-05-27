@@ -7,7 +7,9 @@ bash <(curl -sL https://detect.blackduck.com/detect10.sh) \
  --detect.project.name=karas_test \
  --detect.project.version.name=test-maven01 \
  --detect.source.path="." \
- --logging.level.detect=TRACE \
+ --detect.tools=DETECTOR \
  --detect.excluded.detector.types=GIT \
  --detect.detector.search.depth=3
+
 #--detect.maven.included.scopes=compile,test \  
+#--logging.level.detect=TRACE \
