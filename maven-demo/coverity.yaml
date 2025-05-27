@@ -4,6 +4,22 @@
 # For a complete example configuration: coverity help config --show-all
 # For help on configuration syntax:     coverity help config --syntax
 
+
+capture:
+  build:
+    clean-command: mvn clean
+    build-command: mvn install
+  languages:
+    include:
+    - java
+    
+analyze:
+  checkers:
+    checker-config:
+      SQLI:
+        options:
+          distrust_all: true
+
 # Specifies where the analysis results should be sent.
 commit:
 
