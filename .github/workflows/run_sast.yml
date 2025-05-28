@@ -1,0 +1,22 @@
+name: CI-Coverity-Basic
+on:
+  workflow_call:
+  workflow_dispatch: 
+  
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Coverity Scan
+        id: coverity-scan
+        uses: blackduck-inc/black-duck-security-scan@v2.1.1
+        with:
+          ### SCANNING: Required fields
+          coverity_url: ${{ vars.COVERITY_URL }}
+          coverity_user: ${{ secrets.COVERITY_USER }}
+          coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
+          coverity_project_name: ${{ vars.PROJECT_NAME }}
+          coverity_stream_name: ${{ vars.STREAM_NAME }}
+          coverity_local: true
