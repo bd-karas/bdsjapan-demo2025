@@ -26,9 +26,11 @@ commit:
   # Coverity Connect configuration to use when committing defects to Coverity
   # Connect.
   connect:
+    auth-key-file: "auth-key-for-demo.txt"
+    on-new-cert: trust
 
     # The name of the stream to commit the results to.
     stream: bdsjapan-demo2025
 
     # Absolute URL of where to commit the Coverity Connect results.
-    url: http://localhost:8080
+    url: https://coverity.bdsjp.com
