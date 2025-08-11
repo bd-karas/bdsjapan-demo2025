@@ -32,4 +32,5 @@ jobs:
           coverity_waitForScan: true
           mark_build_status: failure
           include_diagnostics: false
-          coverity_prComment_enabled: false
+          coverity_prComment_enabled: true
+          github_token: ${{ secrets.GH_TOKEN }}
