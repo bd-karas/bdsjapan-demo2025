@@ -21,7 +21,7 @@ class TestCopyPasteError {
     void bar() {
         if (foo(key1) && bar(key1)) { stuff(); }
         // A COPY_PASTE_ERROR defect occurs here.
-        if (foo(key2) && bar(key1)) { stuff(); }
+        //if (foo(key2) && bar(key1)) { stuff(); }
     }
 
 }
