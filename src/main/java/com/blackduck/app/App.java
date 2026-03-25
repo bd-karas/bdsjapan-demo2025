@@ -1,5 +1,5 @@
 package com.blackduck.app;
-
+import java.io.*;
 /**
  * Hello world!
  */
@@ -24,4 +24,24 @@ class TestCopyPasteError {
         //if (foo(key2) && bar(key1)) { stuff(); }
     }
 
+}
+
+
+
+public class ResourceLeak {
+    public void processFiles(String... srcs) throws IOException {
+        // Neither this method nor processStream closes
+        // the FileInputStream
+        for(String src : srcs) {
+            processStream(new FileInputStream(src)); // RESOURCE_LEAK defect
+        }
+    }
+
+    OutputStream dst;
+    private void processStream(InputStream src) throws IOException {
+        int b;
+        while ((b = src.read()) >= 0) {
+            dst.write(b);
+        }
+    }
 }
