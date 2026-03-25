@@ -46,7 +46,7 @@ class ResourceLeak {
     }
 }
 
-class ResourceLeak2 {
+class ResourceLeak3 {
     public void processFiles(String... srcs) throws IOException {
         // Neither this method nor processStream closes
         // the FileInputStream
