@@ -28,7 +28,7 @@ class TestCopyPasteError {
 
 
 
-public class ResourceLeak {
+class ResourceLeak {
     public void processFiles(String... srcs) throws IOException {
         // Neither this method nor processStream closes
         // the FileInputStream
