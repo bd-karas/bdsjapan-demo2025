@@ -45,3 +45,21 @@ class ResourceLeak {
         }
     }
 }
+
+class ResourceLeak2 {
+    public void processFiles(String... srcs) throws IOException {
+        // Neither this method nor processStream closes
+        // the FileInputStream
+        for(String src : srcs) {
+            processStream(new FileInputStream(src)); // RESOURCE_LEAK defect
+        }
+    }
+
+    OutputStream dst;
+    private void processStream(InputStream src) throws IOException {
+        int b;
+        while ((b = src.read()) >= 0) {
+            dst.write(b);
+        }
+    }
+}
